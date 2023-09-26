@@ -83,15 +83,15 @@ class _EasyRefreshPageState extends State<EasyRefreshPage> {
                   expandedHeight: refreshExpandedHeaderHeight,
                   backgroundColor: Colors.transparent,
                   flexibleSpace: FlexibleSpaceBar(
-                    // title: Text(                    titlePadding: EdgeInsets.zero,
+                    // title: Text(
                     //   'EasyRefreshPage',
                     //   style: TextStyle(color: Theme.of(context).textTheme.titleLarge?.color),
                     // ),
+                    // titlePadding: EdgeInsets.zero,
                     // centerTitle: false,
                     background: Container(
                       color: Colors.yellow.withAlpha(125),
                       child: Column(
-                        // fit: StackFit.expand,
                         children: <Widget>[
                           SizedBox(height: headerHeight),
                           Container(
