@@ -1,0 +1,65 @@
+PODS:
+  - audio_session (0.0.1):
+    - Flutter
+  - Flutter (1.0.0)
+  - flutter_vlc_player (3.0.3):
+    - Flutter
+    - MobileVLCKit (~> 3.5.1)
+  - livespeechtotext (0.0.1):
+    - Flutter
+  - MobileVLCKit (3.5.1)
+  - permission_handler_apple (9.1.1):
+    - Flutter
+  - quick_actions_ios (0.0.1):
+    - Flutter
+  - video_player_avfoundation (0.0.1):
+    - Flutter
+  - wakelock (0.0.1):
+    - Flutter
+
+DEPENDENCIES:
+  - audio_session (from `.symlinks/plugins/audio_session/ios`)
+  - Flutter (from `Flutter`)
+  - flutter_vlc_player (from `.symlinks/plugins/flutter_vlc_player/ios`)
+  - livespeechtotext (from `.symlinks/plugins/livespeechtotext/ios`)
+  - permission_handler_apple (from `.symlinks/plugins/permission_handler_apple/ios`)
+  - quick_actions_ios (from `.symlinks/plugins/quick_actions_ios/ios`)
+  - video_player_avfoundation (from `.symlinks/plugins/video_player_avfoundation/ios`)
+  - wakelock (from `.symlinks/plugins/wakelock/ios`)
+
+SPEC REPOS:
+  trunk:
+    - MobileVLCKit
+
+EXTERNAL SOURCES:
+  audio_session:
+    :path: ".symlinks/plugins/audio_session/ios"
+  Flutter:
+    :path: Flutter
+  flutter_vlc_player:
+    :path: ".symlinks/plugins/flutter_vlc_player/ios"
+  livespeechtotext:
+    :path: ".symlinks/plugins/livespeechtotext/ios"
+  permission_handler_apple:
+    :path: ".symlinks/plugins/permission_handler_apple/ios"
+  quick_actions_ios:
+    :path: ".symlinks/plugins/quick_actions_ios/ios"
+  video_player_avfoundation:
+    :path: ".symlinks/plugins/video_player_avfoundation/ios"
+  wakelock:
+    :path: ".symlinks/plugins/wakelock/ios"
+
+SPEC CHECKSUMS:
+  audio_session: 4f3e461722055d21515cf3261b64c973c062f345
+  Flutter: f04841e97a9d0b0a8025694d0796dd46242b2854
+  flutter_vlc_player: e321a4dcfaa0b9018a644791231e3e24e73d2fc7
+  livespeechtotext: 554d747665baa83e841438e88cf8ad7d2fafd8bc
+  MobileVLCKit: 144d5f565512d1147d63b0fa1379231b3fd66535
+  permission_handler_apple: e76247795d700c14ea09e3a2d8855d41ee80a2e6
+  quick_actions_ios: bb09d1c35b4a89f9dbb15487039fa1b983ca375e
+  video_player_avfoundation: 81e49bb3d9fb63dccf9fa0f6d877dc3ddbeac126
+  wakelock: d0fc7c864128eac40eba1617cb5264d9c940b46f
+
+PODFILE CHECKSUM: 38d5e3ce200ea704c97ee41ed24443cbe9a193cd
+
+COCOAPODS: 1.12.1
