@@ -95,13 +95,14 @@ class _EasyRefreshPageState extends State<EasyRefreshPage> {
                         children: <Widget>[
                           SizedBox(height: headerHeight),
                           Container(
-                              color: Colors.blue.withAlpha(125),
-                              width: double.infinity,
-                              child: Image.network(
-                                'https://flutter.github.io/assets-for-api-docs/assets/widgets/owl-2.jpg',
-                                height: refreshExpandedHeaderHeight - kToolbarHeight,
-                                fit: BoxFit.cover,
-                              )),
+                            color: Colors.blue.withAlpha(125),
+                            width: double.infinity,
+                            child: Image.network(
+                              'https://flutter.github.io/assets-for-api-docs/assets/widgets/owl-2.jpg',
+                              height: refreshExpandedHeaderHeight - kToolbarHeight,
+                              fit: BoxFit.cover,
+                            ),
+                          ),
                           // const DecoratedBox(
                           //   decoration: BoxDecoration(
                           //     gradient: LinearGradient(
