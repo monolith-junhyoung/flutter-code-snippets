@@ -2,7 +2,7 @@ import 'package:code_snippets/data/data_repository.dart';
 import 'package:code_snippets/ui/easy_refresh/easy_refresh_with_listener_header_page.dart';
 import 'package:code_snippets/ui/nested_scroll_header/nested_scroll_header.dart';
 import 'package:code_snippets/ui/sample/sample_page.dart';
-import 'package:code_snippets/ui/speech_to_text/SpeechToTextPage.dart';
+import 'package:code_snippets/ui/speech_to_text/speech_to_text_page.dart';
 import 'package:code_snippets/ui/tooltip/tool_tip_page.dart';
 import 'package:flutter/material.dart';
 
