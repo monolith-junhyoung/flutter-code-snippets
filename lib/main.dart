@@ -71,19 +71,14 @@ class _HomePageState extends State<HomePage> {
                     switch (pageType) {
                       case PageType.sample:
                         Navigator.of(context).push(MaterialPageRoute(builder: (_) => const SamplePage()));
-                        break;
                       case PageType.floatingAppBar:
                         Navigator.of(context).push(MaterialPageRoute(builder: (_) => const FloatingActionBarPage()));
-                        break;
                       case PageType.video:
                         Navigator.of(context).push(MaterialPageRoute(builder: (_) => const VideoPage()));
-                        break;
                       case PageType.toolTip:
                         Navigator.of(context).push(MaterialPageRoute(builder: (_) => const ToolTipPage()));
-                        break;
                       case PageType.speechToText:
                         Navigator.of(context).push(MaterialPageRoute(builder: (_) => const SpeechToTextPage()));
-                        break;
                       case PageType.nestedScrollHeader:
                         Navigator.of(context).push(MaterialPageRoute(builder: (_) => const NestedScrollHeaderPage()));
                       case PageType.easyRefresh:
