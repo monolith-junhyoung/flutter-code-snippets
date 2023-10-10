@@ -67,6 +67,7 @@ if version=$(grep -E "$PATTERN_VERSION" pubspec.yaml); then
   fi
 else
   echo "Error: cannot parse versions in pubspec.yaml."
+  exit 1
 fi
 
 echo "Extracting version($version_name, $version_code) from pubspec"
