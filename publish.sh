@@ -4,8 +4,8 @@
 #  npm install -g conventional-changelog-cli
 #
 # 사용법
-# version.sh -s [스프린트 브랜치 이름]
-#  ex) version.sh -s sprint/231025
+# publish.sh -s [스프린트 브랜치 이름]
+#  ex) publish.sh -s sprint/231025
 #
 # CHANGELOG 순서
 # 0. 새버전 발행 ex) update_version.sh
@@ -44,6 +44,18 @@ fi
 
 echo "Releasing $sprint branch..."
 
+# conventional-changelog 패키지 설치 확인
+if command -v node &> /dev/null; then
+  # Check if a specific npm package is installed
+  package_name="conventional-changelog-cli"
+  if ! npm list -g | grep -q "$package_name"; then
+    echo "$package_name is not installed, installing now..."
+    npm install -g conventional-changelog-cli
+  fi
+else
+    echo "Node.js is not installed. Install node through 'brew install node'"
+    exit 1
+fi
 
 # 1. changelog 생성하기
 conventional-changelog -p angular -i CHANGELOG.md -s
