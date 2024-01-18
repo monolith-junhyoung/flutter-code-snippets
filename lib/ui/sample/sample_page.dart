@@ -12,9 +12,14 @@ class SamplePage extends StatelessWidget {
       body: SafeArea(
         child: Center(
           child: Container(
-            margin: const EdgeInsets.fromLTRB(0, 40, 0, 30),
-            height: 600,
-            child: const Text('Sample text'),
+            // height: 58,
+            decoration: const BoxDecoration(
+              image: DecorationImage(
+                image: AssetImage('assets/images/groc/bar_list_ranking_groc_bar_large.png'),
+                fit: BoxFit.fill,
+                centerSlice: Rect.fromLTRB(56, 4, 76, 54),
+              ),
+            ),
           ),
         ),
       ),

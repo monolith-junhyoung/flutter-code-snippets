@@ -1,20 +1,18 @@
-import 'dart:async';
-
 import 'package:code_snippets/ui/tooltip/mono_tool_tip.dart';
-import 'package:code_snippets/ui/tooltip/mono_tool_tip_controller.dart';
 import 'package:code_snippets/ui/tooltip/mono_tool_tip_bubble.dart';
+import 'package:code_snippets/ui/tooltip/mono_tool_tip_controller.dart';
 import 'package:flutter/material.dart';
 
 const positions = <MonoToolTipPosition>[
-  MonoToolTipPosition.rightStart,
-  MonoToolTipPosition.rightCenter,
-  MonoToolTipPosition.rightEnd,
   MonoToolTipPosition.leftStart,
   MonoToolTipPosition.leftCenter,
   MonoToolTipPosition.leftEnd,
   MonoToolTipPosition.topStart,
   MonoToolTipPosition.topCenter,
   MonoToolTipPosition.topEnd,
+  MonoToolTipPosition.rightStart,
+  MonoToolTipPosition.rightCenter,
+  MonoToolTipPosition.rightEnd,
   MonoToolTipPosition.bottomStart,
   MonoToolTipPosition.bottomCenter,
   MonoToolTipPosition.bottomEnd,
@@ -29,36 +27,9 @@ class ToolTipPage extends StatefulWidget {
 
 class _ToolTipPageState extends State<ToolTipPage> {
   final _controller = MonoToolTipController(value: ToolTipStatus.shown);
-  MonoToolTipPosition _position = MonoToolTipPosition.rightStart;
+  MonoToolTipPosition _position = positions.first;
 
-  // int _index = 0;
-  late Timer _timer;
-
-  @override
-  void initState() {
-    super.initState();
-    // _timer = Timer.periodic(const Duration(seconds: 1), (timer) {
-    //   setState(() {
-    //     _index = (_index+1) % positions.length;
-    //     _position = positions[_index];
-    //     print('timer is running with index: $_index');
-    //   });
-    // });
-
-    // _timer = Timer.periodic(const Duration(seconds: 1), (timer) {
-    //   if (_controller.value == ToolTipStatus.hidden) {
-    //     _controller.show();
-    //   } else {
-    //     _controller.hide();
-    //   }
-    // });
-  }
-
-  @override
-  void dispose() {
-    // _timer.cancel();
-    super.dispose();
-  }
+  int _index = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -71,42 +42,65 @@ class _ToolTipPageState extends State<ToolTipPage> {
           children: <Widget>[
             Center(
               child: MonoToolTip(
-                // position: ToolTipPosition.rightStart,
-                // position: ToolTipPosition.rightCenter,
-                // position: ToolTipPosition.rightEnd,
-                // position: ToolTipPosition.leftStart,
-                // position: ToolTipPosition.leftCenter,
-                // position: ToolTipPosition.leftEnd,
-                // position: ToolTipPosition.topStart,
-                // position: ToolTipPosition.topCenter,
-                // position: ToolTipPosition.topEnd,
-                // position: ToolTipPosition.bottomStart,
-                // position: ToolTipPosition.bottomCenter,
                 controller: _controller,
                 position: _position,
                 borderWidth: 4,
                 borderColor: Colors.blueGrey,
                 backgroundColor: Colors.pink,
                 arrowHeight: 10,
+                shadows: <BoxShadow>[
+                  BoxShadow(
+                    color: Colors.black.withOpacity(0.2),
+                    blurRadius: 8,
+                    offset: const Offset(0, 8),
+                  ),
+                ],
+                keepContentInScreen: true,
+                content: const SizedBox(
+                  width: 320,
+                  child: Text(
+                    'ABCDEDGHIJKLMNOPQRSTUVWXYZ',
+                    // 'ABC',
+                    style: TextStyle(
+                      fontFamily: 'Roboto',
+                      color: Colors.black,
+                      fontSize: 28,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
                 // target widget
                 child: Container(
-                  width: 40,
                   height: 60,
                   color: Colors.blue,
+                  child: const Text('Target'),
                 ),
               ),
             ),
-            MaterialButton(
-              onPressed: () {
-                setState(() {
-                  if (_controller.value == ToolTipStatus.hidden) {
-                    _controller.show();
-                  } else {
-                    _controller.hide();
-                  }
-                });
-              },
-              child: Text('Toggle'),
+            Row(
+              children: [
+                MaterialButton(
+                  onPressed: () {
+                    setState(() {
+                      if (_controller.value == ToolTipStatus.hidden) {
+                        _controller.show();
+                      } else {
+                        _controller.hide();
+                      }
+                    });
+                  },
+                  child: const Text('Toggle'),
+                ),
+                MaterialButton(
+                  onPressed: () {
+                    setState(() {
+                      _index = (_index + 1) % positions.length;
+                      _position = positions[_index];
+                    });
+                  },
+                  child: const Text('Next'),
+                ),
+              ],
             ),
           ],
         ),

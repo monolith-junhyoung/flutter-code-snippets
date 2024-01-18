@@ -12,6 +12,7 @@ enum PageType {
   easyRefreshWithListenerHeader,
   easyRefreshWithRefreshIndicator,
   easyRefreshWithAppSpaceBar,
+  polygon,
   ;
 }
 

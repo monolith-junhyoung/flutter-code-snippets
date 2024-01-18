@@ -1,6 +1,7 @@
 import 'package:code_snippets/data/data_repository.dart';
 import 'package:code_snippets/ui/easy_refresh/easy_refresh_with_listener_header_page.dart';
 import 'package:code_snippets/ui/nested_scroll_header/nested_scroll_header.dart';
+import 'package:code_snippets/ui/polygon/PolygonPage.dart';
 import 'package:code_snippets/ui/sample/sample_page.dart';
 import 'package:code_snippets/ui/speech_to_text/speech_to_text_page.dart';
 import 'package:code_snippets/ui/tooltip/tool_tip_page.dart';
@@ -46,7 +47,6 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-
   @override
   void initState() {
     super.initState();
@@ -61,39 +61,45 @@ class _HomePageState extends State<HomePage> {
         title: const Text('Code Snippets'),
       ),
       body: SafeArea(
-          child: ListView.builder(
-              itemCount: dataRepository.getPageList().length,
-              itemBuilder: (BuildContext context, int index) {
-                final PageType pageType = dataRepository.getPageAt(index);
-                return ListTile(
-                  title: Text(pageType.toString()),
-                  onTap: () {
-                    switch (pageType) {
-                      case PageType.sample:
-                        Navigator.of(context).push(MaterialPageRoute(builder: (_) => const SamplePage()));
-                      case PageType.floatingAppBar:
-                        Navigator.of(context).push(MaterialPageRoute(builder: (_) => const FloatingActionBarPage()));
-                      case PageType.video:
-                        Navigator.of(context).push(MaterialPageRoute(builder: (_) => const VideoPage()));
-                      case PageType.toolTip:
-                        Navigator.of(context).push(MaterialPageRoute(builder: (_) => const ToolTipPage()));
-                      case PageType.speechToText:
-                        Navigator.of(context).push(MaterialPageRoute(builder: (_) => const SpeechToTextPage()));
-                      case PageType.nestedScrollHeader:
-                        Navigator.of(context).push(MaterialPageRoute(builder: (_) => const NestedScrollHeaderPage()));
-                      case PageType.easyRefresh:
-                        Navigator.of(context).push(MaterialPageRoute(builder: (_) => const EasyRefreshPage()));
-                      case PageType.easyRefreshWithListenerHeader:
-                        Navigator.of(context).push(MaterialPageRoute(builder: (_) => const EasyRefreshWithListenerHeaderPage()));
-                      case PageType.easyRefreshWithRefreshIndicator:
-                        Navigator.of(context).push(MaterialPageRoute(builder: (_) => const EasyRefreshWithRefreshIndicatorPage()));
-                      case PageType.easyRefreshWithAppSpaceBar:
-                        Navigator.of(context).push(MaterialPageRoute(builder: (_) => const EasyRefreshWithAppSpaceBarPage()));
-                    }
-
-                  },
-                );
-              })),
+        child: ListView.builder(
+          itemCount: dataRepository.getPageList().length,
+          itemBuilder: (BuildContext context, int index) {
+            final PageType pageType = dataRepository.getPageAt(index);
+            return ListTile(
+              title: Text(pageType.toString()),
+              onTap: () {
+                switch (pageType) {
+                  case PageType.sample:
+                    Navigator.of(context).push(MaterialPageRoute(builder: (_) => const SamplePage()));
+                  case PageType.floatingAppBar:
+                    Navigator.of(context).push(MaterialPageRoute(builder: (_) => const FloatingActionBarPage()));
+                  case PageType.video:
+                    Navigator.of(context).push(MaterialPageRoute(builder: (_) => const VideoPage()));
+                  case PageType.toolTip:
+                    Navigator.of(context).push(MaterialPageRoute(builder: (_) => const ToolTipPage()));
+                  case PageType.speechToText:
+                    Navigator.of(context).push(MaterialPageRoute(builder: (_) => const SpeechToTextPage()));
+                  case PageType.nestedScrollHeader:
+                    Navigator.of(context).push(MaterialPageRoute(builder: (_) => const NestedScrollHeaderPage()));
+                  case PageType.easyRefresh:
+                    Navigator.of(context).push(MaterialPageRoute(builder: (_) => const EasyRefreshPage()));
+                  case PageType.easyRefreshWithListenerHeader:
+                    Navigator.of(context)
+                        .push(MaterialPageRoute(builder: (_) => const EasyRefreshWithListenerHeaderPage()));
+                  case PageType.easyRefreshWithRefreshIndicator:
+                    Navigator.of(context)
+                        .push(MaterialPageRoute(builder: (_) => const EasyRefreshWithRefreshIndicatorPage()));
+                  case PageType.easyRefreshWithAppSpaceBar:
+                    Navigator.of(context)
+                        .push(MaterialPageRoute(builder: (_) => const EasyRefreshWithAppSpaceBarPage()));
+                  case PageType.polygon:
+                    Navigator.of(context).push(MaterialPageRoute(builder: (_) => const PolygonPage()));
+                }
+              },
+            );
+          },
+        ),
+      ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {},
         child: const Icon(Icons.add),
