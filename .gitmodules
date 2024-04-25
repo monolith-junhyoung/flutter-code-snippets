@@ -1,0 +1,3 @@
+[submodule "post-tip"]
+	path = post-tip
+	url = git@github.com:monolith-rnd/post-tip.git
