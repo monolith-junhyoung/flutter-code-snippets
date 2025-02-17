@@ -4,6 +4,41 @@ packages:
   - apps/**
   - packages/**
 
+command:
+  bootstrap:
+    # It seems so that running "pub get" in parallel has some issues (like
+    # https://github.com/dart-lang/pub/issues/3404). Disabling this feature
+    # makes the CI much more stable.
+    runPubGetInParallel: true
+
+  # shared dependencies
+  dependencies:
+
+
 scripts:
   analyze:
     exec: dart analyze .
+
+# melos run build:android
+  build:android:
+    run: |
+      melos exec "flutter build apk --debug"
+    description: Build a 981 Park production apk for android
+    packageFilters:
+      flutter: true
+      failFast: true
+      scope:
+        - code_snippets
+
+  translate:
+    run: |
+      python3 translate.py
+
+  lint:all:
+    run: |
+      melos exec -c 1 -- flutter analyze . --fatal-infos
+  description: |
+    Run  `flutter analyze` in all packages.
+
+  fix:
+    run: dart fix lib/ --apply

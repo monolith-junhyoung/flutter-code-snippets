@@ -1,7 +1,6 @@
 name: image_transformer
 description: "An image manipulation package for flutter"
 version: 0.0.1
-homepage:
 
 environment:
   sdk: '>=3.3.4 <4.0.0'

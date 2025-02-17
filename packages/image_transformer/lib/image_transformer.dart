@@ -37,8 +37,8 @@ class ImageLoader {
     switch (type) {
       /// File
       case ImageLoadType.file:
-        final file = File(path);
-        if (await file.isHeifType()) {
+        final original = File(path);
+        if (await original.isHeifType()) {
           final data = await FlutterImageCompress.compressWithFile(path);
           if (data != null) {
             image = img.decodeImage(data, frame: frame);
@@ -83,9 +83,15 @@ class ImageTransformer {
 
   const ImageTransformer({required this.loadImage});
 
-  static Future<String> getTempFileNameWithExtension({required String extension}) async {
+  static Future<String> getTempFilePathWithExtension({required String extension}) async {
     final Directory tempFolder = await getTemporaryDirectory();
     return '${tempFolder.path}/tmp_${DateTime.now().millisecondsSinceEpoch}.$extension';
+  }
+
+  /// Get temporary file path with file name including extension
+  static Future<String> getTempFilePathWithFileName({required String fileName}) async {
+    final Directory tempFolder = await getTemporaryDirectory();
+    return '${tempFolder.path}/$fileName';
   }
 
   Future<ImageTransformer> _doImageWork({
